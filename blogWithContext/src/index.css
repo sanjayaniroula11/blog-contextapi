@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: "Chelsea Market", system-ui;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    background-color: rgb(33, 218, 85)    ;
+}
+.logo-section h2{
+    background-color: green;
+    padding: 15px 20px;
+    color: white;
+    border-radius: 20px;
+}
+.nav-links ul{
+    display: flex;
+    justify-content: space-around;
+}
+.nav-links ul li{
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+.input-things{
+    position: relative;
+    width: 50%;
+    margin: 20px auto;
+    padding: 30px;
+}
+.input-things h5{
+    font-size: 1.5rem;
+}
+.input-things button{
+    padding: 15px 30px;
+    background-color: rgb(6, 59, 6) ;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+}
+.fields{
+    margin-bottom: 30px;
+    height: 50px;
+    width: 100%;
+    font-size: 1.3rem;
+    padding: 5px;
+    outline: none;
+    border-radius: 5px;
+}
+
+.one-blog {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(224, 84, 224);
+    color: white;
+    max-width: 35%;
+    margin: 20px auto; 
+    gap: 20px;
+    padding: 10px;
+}
+
+.one-blog-title h5{
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+}
+
+.blog-content p{
+    font-size: 18px;
+}
+.blog-content{
+    margin-bottom: 30px;
+}
+
+.blog-picture {
+    width: 100%;
+}
+
+.blog-picture img {
+    width: 100%;
+    height: auto;
+}
+
+.writer{
+    position: relative;
+
+}
+.writer p{
+    position: absolute;
+    font-size: 14px;
+    text-transform: capitalize;
+    right: 30px;
+}
+@media (min-width: 600px) {
+    .one-blog {
+        flex-direction: row; 
+    }
+    
+    .blog-picture {
+        width: 50%;
+    }
+}
