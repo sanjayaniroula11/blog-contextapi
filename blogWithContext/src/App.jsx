@@ -1,5 +1,8 @@
-import { useState } from "react";
+import { useState, useContext} from "react";
+import UserContext from "./context/UserContext";
 import "./App.css";
+import UserContextProvider from "./context/UserContextProvider";
+import Blogs from "./components/Blogs";
 
 function App() {
   const [title, setTitle] = useState("");
@@ -7,20 +10,33 @@ function App() {
   const [imageLink, setImageLink] = useState("");
   const [blogs, setBlogs] = useState([]);
 
+
+  const { setTitles } = useContext(UserContext);
+  
+
+
   const addBlog = (e) => {
     e.preventDefault();
-    const newBlog = { title, description, imageLink };
 
-    setBlogs([...blogs, newBlog]);
+
+    setTitles({title})
+
+    const newBlog = { title, description, imageLink };
+    
+    setTitles((prevTitles) => [...prevTitles, newBlog]);
+
+    setBlogs((prevBlogs)=> [...prevBlogs, newBlog]);
 
     setTitle('');
     setDescription('');
     setImageLink('');
-    console.log('Input fields reset');
+    
+
+    
   };
 
   return (
-    <>
+    <UserContextProvider>
       <header>
         <nav>
           <div className="logo-section">
@@ -64,35 +80,9 @@ function App() {
         <button onClick={addBlog}>Post</button>
       </div>
 
-      <main>
-        <div className="blogs-grid">
-          {blogs.map((blog,index)=>(
-            <div className="one-blog">
-            <div className="blog-picture">
-              <img
-                src={blog.imageLink}
-                alt=""
-              />
-            </div>
+    <Blogs/>
 
-            <div className="blog-content">
-              <div className="one-blog-title">
-                <h5>{blog.title}</h5>
-              </div>
-              <div className="blog-content">
-                <p>
-                  {blog.description}
-                </p>
-              </div>
-              <div className="writer">
-                {" "}
-                <p>sanjaya niroula</p>
-              </div>
-            </div>
-          </div>))}
-        </div>
-      </main>
-    </>
+    </UserContextProvider>
   );
 }
 
